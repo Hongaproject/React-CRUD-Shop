@@ -45,7 +45,7 @@ function Product ({product}) {
                 {
                     product.map((list, index) => {
                         return(
-                            <div>
+                            <div key={index}>
                                 <img src={list.img} alt="" />
                                 <h2>{list.title}</h2>
                                 <p>{list.price}</p>
