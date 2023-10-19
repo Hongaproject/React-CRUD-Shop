@@ -33,7 +33,7 @@ const Text = styled.div`
      text-align: center;
 `
 
-function Product ({product}) {
+function Product (props) {
 
     return(
         <Main>
@@ -43,7 +43,7 @@ function Product ({product}) {
             </Text>
             <ul>
                 {
-                    product.map((list, index) => {
+                    props.product.map((list, index) => {
                         return(
                             <div key={index}>
                                 <img src={list.img} alt="" />

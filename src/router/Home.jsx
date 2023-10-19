@@ -1,11 +1,11 @@
 import Product from './Product';
 
 
-function Home ({product}) {
+function Home (props) {
 
     return(
         <div>
-            <Product product={product}/>
+            <Product product={props.product}/>
         </div>
     );
 }
