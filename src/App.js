@@ -6,8 +6,9 @@ import ProductDetail from './router/ProductDetail';
 import data from './data';
 import Home from './router/Home';
 import About from './router/About';
-import Grid from './component/Grid';
-import Main from './component/Main';
+import List from './Test/List';
+import Detail from './Test/Detail';
+import Mainx from './Test/Mainx';
 
 
 function App() {
@@ -17,6 +18,12 @@ function App() {
   return (
     <>
       <Header />
+        {/* Test부분 */}
+        <Routes>
+          <Route path='/' element={<Mainx product={product}/>}/>
+          <Route path="/detail/:id" element={<Detail product={product}/>}/>
+        </Routes>
+
         {/* <div>
           {
             product.map((list, index) => {
@@ -26,9 +33,8 @@ function App() {
             })
           }
         </div> */}
-        <Routes>
-          <Route path='/' element={<Main product={product}/>}/>
-        </Routes>
+
+
         {/* <Routes>
           <Route path='/' element={<Home product={product}/>} />
           <Route path='/pdetail/:id' element={<ProductDetail product={product}/>} />

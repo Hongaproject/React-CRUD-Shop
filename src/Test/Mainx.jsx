@@ -1,17 +1,17 @@
-import Grid from "./Grid";
+import List from "./List";
 
 
-function Main (props) {
+function Mainx (props) {
     return(
         <div>
             <div>
-                <h2>main부분</h2>
+                <h2>Test 폴더 mainx부분 입니다.</h2>
             </div>
             <div>
             {
                 props.product.map((list, index) => {
                 return(
-                    <Grid product={props.product[index]} key={index}/>
+                    <List product={props.product[index]} key={index}/>
                 );
                 })
             }
@@ -20,4 +20,4 @@ function Main (props) {
     );
 }
 
-export default Main;
+export default Mainx;

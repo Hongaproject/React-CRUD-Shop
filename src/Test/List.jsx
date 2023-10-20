@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-function Grid (props) {
+function List (props) {
     return(
         <div>
-            <Link to={`/detail/:${props.product.id}`}>
+            <Link to={`/detail/${props.product.id}`}>
                 <img src={`../img/product${props.product.id}.png`} alt="" />
                 <h3>{props.product.title}</h3>
             </Link>
@@ -13,4 +13,4 @@ function Grid (props) {
     );
 }
 
-export default Grid;
+export default List;
