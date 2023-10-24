@@ -9,6 +9,7 @@ import About from './router/About';
 import List from './Test/List';
 import Detail from './Test/Detail';
 import Mainx from './Test/Mainx';
+import Basket from './Test/Basket';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Mainx product={product}/>}/>
           <Route path="/detail/:id" element={<Detail product={product}/>}/>
+          <Route path="/basket" element={<Basket />}/>
         </Routes>
 
         {/* <div>

@@ -9,8 +9,8 @@ const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
-
-  <Provider store={store}>
+  // store.js에 있는 state를 꺼내서 사용 가능.
+  <Provider store={store}> 
     {/* <React.StrictMode> */}
       <Router>
         <App />

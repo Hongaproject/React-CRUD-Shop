@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 
 
 function Detail (props) {
-
+    // Main서 보여지는 부분에 상세내용을 보여지는 부분입니다.
     const {id} = useParams();
 
     return(
