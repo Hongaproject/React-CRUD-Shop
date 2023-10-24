@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { changeCount } from "../app/store";
+import { addCount, changeCount, deleteCount, minusCount } from "../app/store";
 
 function Basket () {
 
@@ -15,7 +15,6 @@ function Basket () {
     
     return(
         <div>
-            <h3>{basket.user.name}</h3>
             <table>
                 <thead>
                     <tr>
@@ -36,15 +35,20 @@ function Basket () {
                         <td>{basket.product[1].count}</td>
                     </tr> */}
                     {
-                        basket.cart.map((item, index) => (
+                        basket.product.map((item, index) => (
                             <tr key={index}>
-                                <td>{item.id}</td>
-                                <td>{item.title}</td>
-                                <td>{item.count}</td>
-                                <button onClick={() => {
-                                    dispatch(changeCount(item.id))
+                                <td>{basket.product[index].id}</td>
+                                <td>{basket.product[index].title}</td>
+                                <td>{basket.product[index].count}</td>
+                                <button onClick={()=>{
+                                    dispatch(addCount(basket.product[index].id));
                                 }}>+</button>
-                                
+                                <button onClick={()=>{
+                                    dispatch(minusCount(basket.product[index].id));
+                                }}>-</button>
+                                <button onClick={(e)=>{
+                                    dispatch(deleteCount(e.target.parentElement));
+                                }}>삭제하기</button>
                             </tr>
                         ))
                     }
