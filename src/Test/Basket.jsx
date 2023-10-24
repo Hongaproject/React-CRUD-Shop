@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addCount, changeCount, deleteCount, minusCount } from "../app/store";
+import { addCount, deleteCount, minusCount } from "../app/store";
 
 function Basket () {
 
@@ -11,7 +11,10 @@ function Basket () {
 
     console.log(basket);
 
-    let dispatch = useDispatch();
+    let dispatch = useDispatch(); 
+    // store.js부분에 있는 reducer부분 함수를 받아오기 위해 사용을 함.
+    // 사용전 reducer에 있는 함수를 export로 action을 취해줘야지 불러와서 사용이 가능하다.
+    
     
     return(
         <div>
