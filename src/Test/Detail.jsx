@@ -5,6 +5,7 @@ function Detail (props) {
     // Main서 보여지는 부분에 상세내용을 보여지는 부분입니다.
     const {id} = useParams();
 
+    console.log(props.product); // 컴퓨터는 0부터 시작을 하기 때문에 데이터를 0으로 안두고 1로 시작을 하면 내용이 밀려서 나오게 됨.
     return(
         <div>
             <img src={`../img/product${id}.png`} alt="" />

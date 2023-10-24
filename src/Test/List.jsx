@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 function List (props) {
     // Test 폴더 mainx부분에 내용을 보여지는 부분입니다.
+
     return(
         <div>
             <Link to={`/detail/${props.product.id}`}>

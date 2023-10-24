@@ -7,6 +7,7 @@ function Basket () {
     // reducer설정을 product: 로 해줘서 product를 가져와야지 내용이 나온다.
 
     console.log(basket);
+    
     return(
         <div>
             <table>
