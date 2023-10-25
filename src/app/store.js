@@ -46,7 +46,8 @@ let product = createSlice({ // action type, action 생성 함수, reducer까지 
       if (state[nums].count > 1)  state[nums].count--;
     },
     deleteCount(state, action) {
-      action.payload.remove();
+      const i = state.findIndex( a => a.id === action.payload);
+      state.splice(i, 1);
     },
   },
 });
@@ -56,5 +57,9 @@ export const { addCount, minusCount, deleteCount } = product.actions; // reducer
 export default configureStore({
   reducer: { 
     product: product.reducer // product부분이 사용하는 파일 부분서 불러지는 부분
-  }
+  },
+   // 다음이 middleware 추가 코드이다.
+   middleware: getDefaultMiddleware => getDefaultMiddleware({ serializableCheck: false }),
+   // 기본 값이 true지만 배포할때 코드를 숨기기 위해서 false로 변환하기 쉽게 설정에 넣어놨다.
+   devTools: true,
 })

@@ -15,15 +15,16 @@ function Basket () {
     // store.js부분에 있는 reducer부분 함수를 받아오기 위해 사용을 함.
     // 사용전 reducer에 있는 함수를 export로 action을 취해줘야지 불러와서 사용이 가능하다.
     
-    
     return(
         <div>
             <table>
                 <thead>
                     <tr>
-                        <td>번호</td>
                         <td>이름</td>
-                        <td>숫자</td>
+                        <td>갯수</td>
+                        <td>추가</td>
+                        <td>빼기</td>
+                        <td>삭제</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,18 +41,23 @@ function Basket () {
                     {
                         basket.product.map((item, index) => (
                             <tr key={index}>
-                                <td>{basket.product[index].id}</td>
                                 <td>{basket.product[index].title}</td>
                                 <td>{basket.product[index].count}</td>
-                                <button onClick={()=>{
-                                    dispatch(addCount(basket.product[index].id));
-                                }}>+</button>
-                                <button onClick={()=>{
-                                    dispatch(minusCount(basket.product[index].id));
-                                }}>-</button>
-                                <button onClick={(e)=>{
-                                    dispatch(deleteCount(e.target.parentElement));
-                                }}>삭제하기</button>
+                                <td>
+                                    <button onClick={()=>{
+                                        dispatch(addCount(basket.product[index].id));
+                                    }}>+</button>
+                                </td>
+                                <td>
+                                    <button onClick={()=>{
+                                        dispatch(minusCount(basket.product[index].id));
+                                    }}>-</button>
+                                </td>
+                                <td>
+                                    <button onClick={(e)=>{
+                                        dispatch(deleteCount(basket.product[index].id));
+                                    }}>X</button>
+                                </td>
                             </tr>
                         ))
                     }
