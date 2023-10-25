@@ -16,14 +16,14 @@ function Detail (props) {
             <h3>{props.product[id].title}</h3>
             <p>{props.product[id].price}</p>
             <p>{props.product[id].description}</p>
-            {/* <button onClick={()=>{
-                const index = state.product.findIndex((pd)=> pd.id === props.product.id);
+            <button onClick={()=>{
+                const index = state.product.findIndex((pd)=> pd.id === props.product[id].id);
                 if(index < 0){
-                    dispatch(addItem(props.product));
+                    dispatch(addItem(props.product[id]));
                 } else {
-                    dispatch(addCount(props.product.id));
+                    dispatch(addCount(props.product[id].id));
                 }
-            }}>장바구니</button> */}
+            }}>장바구니</button>
         </div>
     );
 }

@@ -20,16 +20,6 @@ import { configureStore, createSlice } from '@reduxjs/toolkit'
 let product = createSlice({ // action type, action 생성 함수, reducer까지 한번에 작성이 가능하다.
   name : 'product', // reducer 이름을 지정해줌
   initialState : [ // 초기상태이며 state 할당
-  {
-    id : 0,
-    title : '오둥이',
-    count : 1
-    },
-    {
-    id : 1,
-    title : '카카오 가습기',
-    count : 1
-    }
   ], 
   reducers: { // initialState에 있는 내용을 함수와 state와 action을 사용합니다.
     addCount(state, action) { 
@@ -49,10 +39,18 @@ let product = createSlice({ // action type, action 생성 함수, reducer까지 
       const i = state.findIndex( a => a.id === action.payload);
       state.splice(i, 1);
     },
+    addItem(state, action) {
+      const pd = {
+        id: action.payload.id,
+        title: action.payload.title,
+        count: 1,
+      };
+      state.push(pd);
+    },
   },
 });
 
-export const { addCount, minusCount, deleteCount } = product.actions; // reducers부분 함수를 불러와 dispatch로 사용 할 수 있게 해줌.
+export const { addCount, minusCount, deleteCount, addItem } = product.actions; // reducers부분 함수를 불러와 dispatch로 사용 할 수 있게 해줌.
 
 export default configureStore({
   reducer: { 
