@@ -26,26 +26,26 @@ let product = createSlice({ // action type, action 생성 함수, reducer까지 
       // Basket.js부분 addCount버튼은 basket.product[index].id 파라미터를 보내줌
       // store.js부분 addCount에서는 action 파라미터로 받아와지는것 
       // action으로 받아온 파라미터 값을 사용 하려면 payload를 사용해서 사용함.
-      let nums = state.findIndex( a => a.id === action.payload);
+      let nums = state.findIndex( plist => plist.id === action.payload);
       // findIndex는 자바스크립트서 배열 부분에서 사용이 되는데 순차적으로 배열을 찾아내기 때문에 결과에 만족하는 값을 찾으면 그 값을 찾아온다.
       // action.payload는 Basket.js부분에서 basket.product[index].id부분을 보낸 것
-      state[nums].count++;
+      state[nums].count++; //
     },
     minusCount(state, action) {
-      let nums = state.findIndex( a => a.id === action.payload);
+      let nums = state.findIndex( plist => plist.id === action.payload);
       if (state[nums].count > 1)  state[nums].count--;
     },
     deleteCount(state, action) {
-      const i = state.findIndex( a => a.id === action.payload);
+      const i = state.findIndex( plist => plist.id === action.payload);
       state.splice(i, 1);
     },
     addItem(state, action) {
-      const pd = {
+      const pl = {
         id: action.payload.id,
         title: action.payload.title,
         count: 1,
       };
-      state.push(pd);
+      state.push(pl);
     },
   },
 });

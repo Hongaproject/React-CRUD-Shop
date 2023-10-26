@@ -28,16 +28,6 @@ function Basket () {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* <tr>
-                        <td>{basket.product[0].id}</td>
-                        <td>{basket.product[0].title}</td>
-                        <td>{basket.product[0].count}</td>
-                    </tr>
-                    <tr>
-                        <td>{basket.product[1].id}</td>
-                        <td>{basket.product[1].title}</td>
-                        <td>{basket.product[1].count}</td>
-                    </tr> */}
                     {
                         basket.product.map((item, index) => (
                             <tr key={index}>
