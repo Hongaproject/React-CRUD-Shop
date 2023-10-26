@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './layout/Header';
 import Footer from './layout/Footer';
 import { Route, Routes, useNavigate } from 'react-router-dom';
@@ -13,12 +13,32 @@ import Basket from './Test/Basket';
 
 
 function App() {
-
   const [product, setProduct] = useState(data);
+
+  let getlocal = JSON.parse(localStorage.getItem("data")); // 재할당을 하기 위해 let을 사용함.
+
+  useEffect(() => {
+    // eslint-disable-next-line no-unused-expressions
+    getlocal === null ? localStorage.setItem("data", JSON.stringify([])) : null
+  }, []);
 
   return (
     <>
       <Header />
+      <div>
+        <p>최근 본 상품</p>
+          {getlocal !== null
+          ? getlocal.map((a, i) => {
+              return (
+                <div>
+                <p className="get-local" style={{ marginTop: "10px" }}>{getlocal[i]}</p>
+                <button onClick={()=> localStorage.removeItem('data')}>X</button> 
+                <p>X를 누르시고 새로고침하면 사라집니다.</p>
+                </div>
+              );
+            })
+          : null}
+      </div>
         {/* Test부분 */}
         <Routes>
           <Route path='/' element={<Mainx product={product}/>}/>
