@@ -3,6 +3,9 @@ import styled from "styled-components";
 
 const Nav = styled.div`
     display: flex;
+    height: 100px;
+    border-bottom: 1px solid #d2d2d2;
+    line-height: 50px;
 `
 
 const Title = styled.div`
@@ -31,7 +34,6 @@ function Header () {
                 <Blockquote><p></p></Blockquote>
                 <Link to="/basket" style={{ textDecoration: "none" }}><Title>장바구니</Title></Link>
             </Nav>
-            <hr />
         </div>
     );
 }

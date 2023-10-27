@@ -6,6 +6,7 @@ const Main = styled.div`
     max-width: 1200px;
     margin: 0 auto;
     min-height: calc(100vh - 100px);
+    margin-top: 80px;
 
     ul{
         display: flex;
