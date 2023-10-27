@@ -15,11 +15,12 @@ import Basket from './Test/Basket';
 function App() {
   const [product, setProduct] = useState(data);
 
-  let getlocal = JSON.parse(localStorage.getItem("data")); // 재할당을 하기 위해 let을 사용함.
+  let getlocal = JSON.parse(localStorage.getItem("title")); // 재할당을 하기 위해 let을 사용함. title키를 가진 값을 할당 시켜줌. ""안에 아무거나 넣어도 가능 name이나 data도 가능
 
   useEffect(() => {
     // eslint-disable-next-line no-unused-expressions
-    getlocal === null ? localStorage.setItem("data", JSON.stringify([])) : null
+    getlocal === null ? localStorage.setItem("title", JSON.stringify([])) : null
+    // 삼항연산자로 local부분이 비어있다면 localStorage.setItem으로 빈 배열을 넣어주고 local부분이 비어있지 않다면 아무 행동을 하지 않는다.
   }, []);
 
   return (
@@ -27,12 +28,13 @@ function App() {
       <Header />
       <div>
         <p>최근 본 상품</p>
+        {/* local부분이 비어있지 않다면 map함수를 이용해서 보여준다. */}
           {getlocal !== null
           ? getlocal.map((a, i) => {
               return (
                 <div>
                 <p className="get-local" style={{ marginTop: "10px" }}>{getlocal[i]}</p>
-                <button onClick={()=> localStorage.removeItem('data')}>X</button> 
+                <button onClick={()=> localStorage.removeItem('title')}>X</button> 
                 <p>X를 누르시고 새로고침하면 사라집니다.</p>
                 </div>
               );

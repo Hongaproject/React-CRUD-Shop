@@ -13,7 +13,7 @@ function Detail (props) {
     console.log(props.product); // 컴퓨터는 0부터 시작을 하기 때문에 데이터를 0으로 안두고 1로 시작을 하면 내용이 밀려서 나오게 됨.
 
     useEffect(() => { // 최근 본 상품을 넣기위해 사용함. 
-        let getlocal = localStorage.getItem("data"); // 변수 선언 후 할당을 해줍니다.
+        let getlocal = localStorage.getItem("title"); // 변수 선언 후 할당을 해줍니다. 출력
         console.log(getlocal);
 
         if (getlocal == null) {
@@ -29,10 +29,14 @@ function Detail (props) {
          getlocal.push(props.product[id].title); // 상세페이지에서 접속을 하면 ()부분을 가져와 push로 넣어준다.
          getlocal = new Set(getlocal); // set함수를 사용해서 중복을 제거해준다. 이 부분은 배열에 추가한 내용이 있으면 또 추가를 안해준다는 뜻
          getlocal = [...getlocal]; // spread문법을 사용해서 내용을 복사해주고
-         localStorage.setItem("data", JSON.stringify(getlocal)); // getlocal로 다시 넣어줍니다.
+         localStorage.setItem("title", JSON.stringify(getlocal)); // getlocal로 다시 넣어줍니다. 저장.
          // 로컬스토리지는 문자열만 저장이 가능하기 때문에 parse로 변환 된 내용을 stringify로 감싸주어 문자열로 변환하여 저장합니다.
     }, []);
 
+    // localstorage 사용 방법
+    // 저장 방법 localStorage.setItem("")
+    // 출력 방법 localStorage.getItem("")
+    // 삭제 방법 localStorage.removeItem("")
 
     return(
         <div>
