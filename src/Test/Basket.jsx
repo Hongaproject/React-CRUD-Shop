@@ -1,5 +1,21 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addCount, deleteCount, minusCount } from "../app/store";
+import styled from "styled-components";
+
+const Main = styled.div`
+    min-height: calc(100vh - 300px);
+    padding: 50px;
+    th, td { 
+        border-bottom: 2px solid orange;
+        text-align: center;
+        padding: 10px;
+    }
+    table { 
+        border-collapse: collapse; 
+        width: 50%;
+        margin: 0 auto; 
+    }    
+`
 
 function Basket () {
 
@@ -16,15 +32,15 @@ function Basket () {
     // 사용전 reducer에 있는 함수를 export로 action을 취해줘야지 불러와서 사용이 가능하다.
     
     return(
-        <div>
+        <Main>
             <table>
                 <thead>
                     <tr>
-                        <td>이름</td>
-                        <td>갯수</td>
-                        <td>추가</td>
-                        <td>빼기</td>
-                        <td>삭제</td>
+                        <th>이름</th>
+                        <th>갯수</th>
+                        <th>추가</th>
+                        <th>빼기</th>
+                        <th>삭제</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -53,7 +69,7 @@ function Basket () {
                     }
                 </tbody>
             </table>
-        </div>
+        </Main>
     );
 }
 

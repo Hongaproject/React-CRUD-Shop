@@ -17,6 +17,10 @@ const Title = styled.div`
     margin-right: 0;
     font-weight: bold;
     color: black;
+    &:hover {
+    color: #0192c7;
+    transition: 0.5s;
+  }
 `
 
 const Blockquote = styled.div`

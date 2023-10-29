@@ -12,6 +12,7 @@ const Bket = styled.div`
   position : fixed;
   width: 300px;
   height: 100%;
+  margin-top: 50px;
 `
 
 const BketBtn = styled.div`
@@ -22,9 +23,15 @@ const A = styled.div`
   margin-right: 10px;
   margin-top: 5px;
 `
+const BMain= styled.div`
+  display: flex;
+  p{
+    margin-right: 10px;
+  }
+`
 
 const B= styled.div`
-  line-height: 29px;
+  line-height: 50px;
 `
 
 
@@ -44,25 +51,27 @@ function App() {
   return (
     <>
       <Header />
-      <Bket>
-        <p>최근 본 상품</p>
-        {/* local부분이 비어있지 않다면 map함수를 이용해서 보여준다. */}
-          {getlocal !== null
-          ? getlocal.map((a, i) => {
-              return (
-                <BketBtn>
-                  <A>
-                    <span className="get-local" style={{ marginTop: "10px" }}>{getlocal[i]}</span>
-                  </A>
-                  <B>
-                    <button onClick={()=> localStorage.removeItem('title')}>X</button> 
-                  </B>
-                </BketBtn>
-              );
-            })
-          : null}
-      </Bket>
-        {/* Test부분 */}
+        <Bket>
+          <BMain>
+            <p>최근 본 상품</p>
+            <B>
+              <button onClick={()=> localStorage.removeItem('title')}>X</button> 
+            </B>
+          </BMain>
+          {/* local부분이 비어있지 않다면 map함수를 이용해서 보여준다. */}
+            {getlocal !== null
+            ? getlocal.map((a, i) => {
+                return (
+                  <BketBtn>
+                    <A>
+                      <span>{getlocal[i]}</span>
+                    </A>
+                  </BketBtn>
+                );
+              })
+            : null}
+        </Bket>
+          {/* Test부분 */}
         <Routes>
           <Route path='/' element={<Mainx product={product}/>}/>
           <Route path="/detail/:id" element={<Detail product={product}/>}/>

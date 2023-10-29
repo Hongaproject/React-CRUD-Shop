@@ -2,7 +2,28 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { addCount, addItem } from "../app/store";
 import { useEffect } from "react";
+import styled from "styled-components";
 
+const Main = styled.div`
+    display: flex;
+    width:100%;
+    max-width: 1200px;
+    padding: 50px;
+    justify-content: center;
+    margin: 0 auto;
+`
+const Text = styled.div`
+    display: block;
+    margin-left: 20px;
+`
+const TextLi = styled.div`
+    margin-top: 20px;
+`
+const Img = styled.div`
+    img{
+        border-radius: 10%;
+    }
+`
 
 
 
@@ -41,20 +62,28 @@ function Detail (props) {
     // 삭제 방법 localStorage.removeItem("")
 
     return(
-        <div>
-            <img src={`../img/product${id}.png`} alt="" />
-            <h3>{props.product[id].title}</h3>
-            <p>{props.product[id].price}</p>
-            <p>{props.product[id].description}</p>
-            <button onClick={()=>{
-                const index = state.product.findIndex((pl)=> pl.id === props.product[id].id);
-                if(index < 0){
-                    dispatch(addItem(props.product[id]));
-                } else {
-                    dispatch(addCount(props.product[id].id));
-                }
-            }}>장바구니</button>
-        </div>
+        <Main>
+            <Img>
+                <img src={`../img/product${id}.png`} alt="" />
+            </Img>
+            <Text>
+                <h3>{props.product[id].title}</h3>
+                <TextLi>
+                    <p>{props.product[id].price}</p>
+                </TextLi>
+                <TextLi>
+                    <p>{props.product[id].description}</p>
+                </TextLi>
+                <button onClick={()=>{
+                    const index = state.product.findIndex((pl)=> pl.id === props.product[id].id);
+                    if(index < 0){
+                        dispatch(addItem(props.product[id]));
+                    } else {
+                        dispatch(addCount(props.product[id].id));
+                    }
+                }}>장바구니</button>
+            </Text>
+        </Main>
     );
 }
 
