@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Header from './layout/Header';
 import Footer from './layout/Footer';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import data from './data';
-import Detail from './Test/Detail';
-import Mainx from './Test/Mainx';
-import Basket from './Test/Basket';
+import Detail from './component/Detail';
+import Mainx from './component/Mainx';
+import Basket from './component/Basket';
 import styled from 'styled-components';
 
 const Bket = styled.div`

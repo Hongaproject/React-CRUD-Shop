@@ -30,7 +30,7 @@ function Mainx (props) {
     return(
         <Main>
             <Text>
-                <h2>Test 폴더 mainx부분 입니다.</h2>
+                <h2>상품 </h2>
             </Text>
             <ul>
             {
